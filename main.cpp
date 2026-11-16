@@ -141,6 +141,24 @@ int main() {
     cout << endl;
     rutaMasCortaBFS(graph, 0);
 
+/*
+    // bloquear conexion entre v4 y v7
+    removeEdge(graph, 4, 7);
+    cout << "\nMatriz despues de bloquear V4 y V7: \n";
+    imprimirMatriz(graph);
+    cout << "\nNuevo recorrido: ";
+    vector<int> resultado2 = BFS(graph, 0);
+
+    for (int x : resultado2) {
+        cout << "V" << x << " ";
+    }
+    cout << endl;
+
+    cout << "\nNueva ruta de evacuacion:\n";
+    rutaMasCortaBFS(graph, 0);
+    */
+
+    
     return 0;
 
 }
