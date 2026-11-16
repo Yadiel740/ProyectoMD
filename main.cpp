@@ -71,13 +71,17 @@ void rutaMasCortaBFS(const vector<vector<int>>& graph, int src, bool movilidadLi
         int curr = q.front();
         q.pop();
         
-        //Modificación para identificar salida para pacientes encamados y pacientes con movilidad completa
+     
         if (curr == 8 || curr == 9) {
             salida_vertice = curr;
             break;
         }
 
         for (int i = 0; i < v; i++) {
+            //Bloqueo para evitar que pacientes con movilidad limitada bajen las escaleras
+            if (movilidadLimitada && i==6){
+                continue;
+            }
             if (graph[curr][i] == 1 && !visited[i]) {
                 visited[i] = true;
                 parent[i] = curr;
@@ -119,7 +123,7 @@ int main() {
     addEdge(graph, 3, 4);
     addEdge(graph, 4, 5);
     addEdge(graph, 4, 6);
-    addEdge(graph, 4, 7); //grafo añadido 
+    addEdge(graph, 4, 7); 
     addEdge(graph, 5, 7);
     addEdge(graph, 6, 7);
     addEdge(graph, 6, 8);
